@@ -1,1 +1,27 @@
+server:
+  port: 8080
 
+spring:
+  cloud:
+    gateway:
+      routes:
+
+        - id: student-service
+          uri: lb://STUDENT-SERVICE
+          predicates:
+            - Path=/students/**
+
+        - id: attendance-service
+          uri: lb://ATTENDANCE-SERVICE
+          predicates:
+            - Path=/attendance/**
+
+        - id: result-service
+          uri: lb://RESULT-SERVICE
+          predicates:
+            - Path=/results/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
