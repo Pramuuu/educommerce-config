@@ -6,7 +6,7 @@ spring:
     gateway:
       routes:
 
-        - id: student-service
+        - id: StudentService
           uri: lb://STUDENT-SERVICE
           predicates:
             - Path=/students/**
