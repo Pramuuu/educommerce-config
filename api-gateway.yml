@@ -16,7 +16,7 @@ spring:
             - Path=/auth/**
 
         # Student APIs
-        - id: student-service
+        - id: StudentService
           uri: lb://STUDENTSERVICE
           predicates:
             - Path=/students/**
