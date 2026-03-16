@@ -9,25 +9,25 @@ spring:
     gateway:
       routes:
 
-        # Student Service Routes
-        - id: student-service
-          uri: lb://STUDENT-SERVICE
-          predicates:
-            - Path=/students/**
-
-        # Authentication Routes (login & register)
+        # Authentication APIs
         - id: auth-service
-          uri: lb://STUDENT-SERVICE
+          uri: lb://STUDENTSERVICE
           predicates:
             - Path=/auth/**
 
-        # Attendance Service Routes
+        # Student APIs
+        - id: student-service
+          uri: lb://STUDENTSERVICE
+          predicates:
+            - Path=/students/**
+
+        # Attendance APIs
         - id: attendance-service
           uri: lb://ATTENDANCE-SERVICE
           predicates:
             - Path=/attendance/**
 
-        # Result Service Routes
+        # Result APIs
         - id: result-service
           uri: lb://RESULT-SERVICE
           predicates:
